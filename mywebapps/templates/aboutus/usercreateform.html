@@ -1,0 +1,51 @@
+<!--inherit html common code-->
+
+{% extends 'common_code/user-account.html'%}
+{%load static%}
+
+ <!--inherit start block content-->
+<!--page title-->
+{% block title %}  
+Create Account
+{% endblock title %}
+
+<!--start block content-->
+
+
+{%block content%} 
+<h1>Create a new account</h1>
+    <a href="{% url 'aboutus' %}"><img class = 'home-sign-log-img' src="{% static 'images/home.gif'%}"  alt="..."> </a>
+        <!--start spacing-->
+        <div class ="margin-bottom">
+
+            </div>
+    
+
+    <form action = " " method = "POST" novalidate>
+    {% csrf_token %}
+    <!--use for loop to remove error reporting-->
+    {% for fm in form %}
+    <!--label, input, error filter-->
+    {{fm.label_tag}}{{fm}}{{fm.errors | striptags}} <br><br>
+    {% endfor %}
+
+    
+    
+    
+
+    <input class="button-signup" type = "submit" value  = "submit">
+    
+
+    <a href = "{% url 'login' %}" class="button-login">login</a>
+    </form>
+   
+
+    <label> By creating an account, you agree to Tour&Travels's <a href = "https://docs.djangoproject.com/en/4.2/">Conditions of Use and Privacy Notice.</a></label>
+
+{%endblock content%}
+
+
+
+
+
+ 
